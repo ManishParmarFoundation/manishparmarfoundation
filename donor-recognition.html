@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be a Champion Behind a Champion — Manish Parmar Foundation</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2744;
+    --crimson: #8b1a1a;
+    --gold: #c9960c;
+    --cream: #f2e8d5;
+    --dark: #0d1520;
+    --gray: #5a4a3a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--dark);
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--cream);
+    min-height: 100vh;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    padding: 60px 24px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 4px solid var(--gold);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(201,150,12,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(36px, 8vw, 72px);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.0;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .hero h1 span { color: var(--gold); }
+
+  .hero-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(16px, 3vw, 22px);
+    color: rgba(242,232,213,0.75);
+    margin-bottom: 24px;
+  }
+
+  .hero-desc {
+    font-size: 16px;
+    color: rgba(242,232,213,0.8);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.75;
+  }
+
+  .hero-desc strong { color: var(--gold); }
+
+  /* QUOTE */
+  .quote-strip {
+    background: var(--gold);
+    padding: 20px 24px;
+    text-align: center;
+  }
+
+  .quote-strip p {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(16px, 3vw, 22px);
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* TIERS */
+  .tiers {
+    padding: 60px 24px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .tiers-title {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .tiers-title h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(24px, 5vw, 40px);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--cream);
+    letter-spacing: 2px;
+  }
+
+  .tiers-title p {
+    font-size: 15px;
+    color: rgba(242,232,213,0.6);
+    margin-top: 8px;
+  }
+
+  /* TIER CARD */
+  .tier-card {
+    margin-bottom: 16px;
+    border: 1px solid rgba(201,150,12,0.2);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+
+  .tier-card:hover { transform: translateY(-3px); }
+
+  .tier-card.tier-1 { background: rgba(26,39,68,0.6); }
+  .tier-card.tier-2 { background: var(--navy); border-color: var(--gold); }
+  .tier-card.tier-3 { background: var(--crimson); border-color: var(--gold); }
+
+  .tier-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+  }
+
+  .tier-inner {
+    padding: 28px 28px 28px 24px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .tier-left {}
+
+  .tier-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .tier-amount {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(24px, 5vw, 36px);
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  .tier-desc {
+    font-size: 14px;
+    color: rgba(242,232,213,0.8);
+    line-height: 1.6;
+  }
+
+  .tier-perks {
+    list-style: none;
+    margin-top: 12px;
+  }
+
+  .tier-perks li {
+    font-size: 13px;
+    color: rgba(242,232,213,0.9);
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .tier-perks li::before {
+    content: '✦';
+    color: var(--gold);
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+  .tier-icon {
+    font-size: 48px;
+    opacity: 0.9;
+    text-align: center;
+  }
+
+  /* RECOGNITION NOTE */
+  .recognition-note {
+    background: rgba(201,150,12,0.08);
+    border: 1px solid rgba(201,150,12,0.3);
+    border-left: 4px solid var(--gold);
+    padding: 20px 24px;
+    margin-top: 24px;
+    font-size: 13px;
+    color: rgba(242,232,213,0.7);
+    line-height: 1.7;
+  }
+
+  .recognition-note strong { color: var(--gold); }
+
+  /* HOW IT WORKS */
+  .how {
+    background: var(--navy);
+    padding: 50px 24px;
+    border-top: 2px solid rgba(201,150,12,0.3);
+    border-bottom: 2px solid rgba(201,150,12,0.3);
+  }
+
+  .how-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .how h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(20px, 4vw, 32px);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--cream);
+    letter-spacing: 2px;
+    margin-bottom: 32px;
+  }
+
+  .how-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 24px;
+  }
+
+  .how-step {
+    text-align: center;
+  }
+
+  .how-step-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--gold);
+    opacity: 0.3;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .how-step-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+
+  .how-step-desc {
+    font-size: 13px;
+    color: rgba(242,232,213,0.65);
+    line-height: 1.5;
+  }
+
+  /* CTA */
+  .cta {
+    padding: 60px 24px;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .cta h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(24px, 5vw, 44px);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .cta h2 span { color: var(--gold); }
+
+  .cta p {
+    font-size: 16px;
+    color: rgba(242,232,213,0.7);
+    margin-bottom: 32px;
+    line-height: 1.7;
+  }
+
+  .donate-btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 20px 60px;
+    text-decoration: none;
+    box-shadow: 6px 6px 0 rgba(201,150,12,0.3);
+    transition: transform 0.15s, box-shadow 0.15s;
+    display: block;
+    max-width: 400px;
+    margin: 0 auto 16px;
+  }
+
+  .donate-btn:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0 rgba(201,150,12,0.3);
+  }
+
+  .website-btn {
+    display: block;
+    color: var(--gold);
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    opacity: 0.8;
+    margin-top: 12px;
+  }
+
+  .cta-note {
+    font-size: 12px;
+    color: rgba(242,232,213,0.4);
+    margin-top: 20px;
+    line-height: 1.6;
+  }
+
+  /* SHARE SECTION */
+  .share {
+    background: var(--crimson);
+    padding: 36px 24px;
+    text-align: center;
+  }
+
+  .share h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+
+  .share p {
+    font-size: 14px;
+    color: rgba(242,232,213,0.8);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #080d14;
+    padding: 24px;
+    text-align: center;
+    border-top: 2px solid var(--gold);
+  }
+
+  footer p {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: rgba(201,150,12,0.6);
+    text-transform: uppercase;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 500px) {
+    .tier-inner { grid-template-columns: 1fr; }
+    .tier-icon { display: none; }
+    .donate-btn { padding: 18px 36px; font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">★ Manish Parmar Foundation ★</div>
+  <h1>Be a <span>Champion</span><br>Behind a Champion</h1>
+  <div class="hero-sub">Your generosity changes a young life forever</div>
+  <p class="hero-desc">
+    Every donor who supports the Manish Parmar Foundation becomes part of a young athlete's journey. We honour every contribution and celebrate those who go above and beyond.
+  </p>
+</div>
+
+<!-- QUOTE STRIP -->
+<div class="quote-strip">
+  <p>Talent should never be stopped by money — Manish Parmar</p>
+</div>
+
+<!-- TIERS -->
+<div class="tiers">
+  <div class="tiers-title">
+    <h2>Donor Recognition Tiers</h2>
+    <p>Every contribution is honoured. Larger donors are publicly celebrated.</p>
+  </div>
+
+  <!-- TIER 1 -->
+  <div class="tier-card tier-1">
+    <div class="tier-badge">Community Supporter</div>
+    <div class="tier-inner">
+      <div class="tier-left">
+        <span class="tier-label">Any Amount</span>
+        <div class="tier-amount">₹10 — ₹1,000</div>
+        <p class="tier-desc">Every rupee goes directly toward a young athlete in need. No amount is too small. You are making a real difference.</p>
+        <ul class="tier-perks">
+          <li>Contribution goes toward approved athlete support</li>
+          <li>All currencies accepted worldwide</li>
+          <li>Acknowledged with gratitude</li>
+        </ul>
+      </div>
+      <div class="tier-icon">🤝</div>
+    </div>
+  </div>
+
+  <!-- TIER 2 -->
+  <div class="tier-card tier-2">
+    <div class="tier-badge">⭐ Champion Donor</div>
+    <div class="tier-inner">
+      <div class="tier-left">
+        <span class="tier-label">Champion Level</span>
+        <div class="tier-amount">Above ₹1,000</div>
+        <p class="tier-desc">You are funding a complete athlete support package. Your generosity will be publicly recognised.</p>
+        <ul class="tier-perks">
+          <li>Your name featured on our Facebook page</li>
+          <li>Personal acknowledgement from Manish Parmar</li>
+          <li>Recognition as a Champion Donor</li>
+        </ul>
+      </div>
+      <div class="tier-icon">⭐</div>
+    </div>
+  </div>
+
+  <!-- TIER 3 -->
+  <div class="tier-card tier-3">
+    <div class="tier-badge">🏆 Elite Donor</div>
+    <div class="tier-inner">
+      <div class="tier-left">
+        <span class="tier-label">Elite Level</span>
+        <div class="tier-amount">₹5,000 — ₹10,000</div>
+        <p class="tier-desc">You are funding multiple athletes and their dreams. Our highest level of recognition is reserved for you.</p>
+        <ul class="tier-perks">
+          <li>Name, photo, and Facebook ID featured on our page</li>
+          <li>Personal video thank you from Manish Parmar</li>
+          <li>Permanent recognition as Elite Donor</li>
+          <li>Photo and Facebook ID always optional</li>
+        </ul>
+      </div>
+      <div class="tier-icon">🏆</div>
+    </div>
+  </div>
+
+  <div class="recognition-note">
+    <strong>Privacy Notice:</strong> All public recognition is optional. You may choose to remain anonymous at any tier. Photos and Facebook IDs are only published with your explicit consent. Your privacy is always respected.
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="how">
+  <div class="how-inner">
+    <h2>How Recognition Works</h2>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-step-num">01</div>
+        <div class="how-step-title">You Donate</div>
+        <p class="how-step-desc">Via our GoFundMe page in any currency from anywhere in the world.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">02</div>
+        <div class="how-step-title">You Notify Us</div>
+        <p class="how-step-desc">Email manishparmarfoundation@outlook.com with your name and donation amount.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">03</div>
+        <div class="how-step-title">We Honour You</div>
+        <p class="how-step-desc">Your name or profile is featured on our Facebook page within 48 hours.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">04</div>
+        <div class="how-step-title">Athlete Helped</div>
+        <p class="how-step-desc">Your contribution is allocated toward a verified young athlete in need.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>Ready to Be a <span>Champion</span><br>Behind a Champion?</h2>
+  <p>Join donors from around the world supporting the next generation of young athletes in India. Every contribution counts. Every name matters.</p>
+  <a href="https://www.gofundme.com/f/p8yt9-manish-parmar-foundation-young-athletes-india" target="_blank" class="donate-btn">Donate Now</a>
+  <a href="https://manishparmarfoundation.github.io/manishparmarfoundation/" target="_blank" class="website-btn">Learn more at manishparmarfoundation.github.io</a>
+  <p class="cta-note">Donations are voluntary and not tax-deductible. The Manish Parmar Foundation is not a registered charity. Funds are allocated based on eligibility verification and available resources.</p>
+</div>
+
+<!-- SHARE -->
+<div class="share">
+  <h3>Share This Page</h3>
+  <p>Help us reach more donors by sharing this page with your friends, family, and community. Together we can build tomorrow's champions.</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>Manish Parmar Foundation &nbsp;·&nbsp; Independent Community Initiative &nbsp;·&nbsp; Ontario, Canada</p>
+  <p style="margin-top:6px;">Not a Registered Charity &nbsp;·&nbsp; Donations Voluntary &nbsp;·&nbsp; No Tax Receipts Issued</p>
+  <p style="margin-top:6px;">© 2026 Manish Parmar Foundation</p>
+</footer>
+
+</body>
+</html>
